@@ -1,0 +1,150 @@
+void main() {
+  //hello world
+  print("hello world");
+
+  //variable
+
+  //dart is known as statically type programming language
+  //which means once the variable is declared with specific data type the data type can't
+  //be change in the future
+
+  // String name = "Diluka";
+  // print(name);
+
+  // name = 30;
+
+  int age = 30;
+  print(age);
+
+  String name = "Diluka";
+  print(name);
+  name = "Wijesinghe";
+  print(name);
+
+  bool isMale = true;
+  print(isMale);
+
+  //dynamic data type allows to assign different type of data to that
+  //variable in future
+
+  dynamic d1 = "Diluka";
+  print(d1);
+  d1 = 30;
+  print(d1);
+
+  //variable Concatenation
+  String fName = "Diluka";
+  int myAge = 20;
+  print("Hello I'm $fName & I'm $myAge years old");
+
+  //if
+  int number = 10;
+
+  if (number > 0) {
+    print('Positive');
+  } else if (number < 0) {
+    print('Negative');
+  } else {
+    print('Zero');
+  }
+
+  //ternary
+  int n1 = 10;
+  String result = (n1 > 0) ? 'Positive' : 'Non-positive';
+  print(result);
+
+  //for
+  List<int> numbers = [1, 2, 3, 4, 5];
+
+  for (int num in numbers) {
+    print(num);
+  }
+  numbers.forEach((int num) {
+    print(num);
+  });
+
+  //calling functions;
+  String greetMsg = greet();
+  int ageValue = getAge(30);
+  print("$greetMsg\n");
+  print(ageValue);
+
+  //Arrow functions
+  String greetMsgArrow = greetArrow();
+  int ageValueArrow = getAgeArrow(20);
+  print(greetMsgArrow);
+  print(ageValueArrow);
+
+  //List
+  List<String> names = ["Diluka", "Tom", "Jack"];
+  print(names);
+
+  names.add("Sam");
+  names.remove("Tom");
+  print(names);
+  // it want give a error but the value want add to the list
+  //to get rid by adding different data type values to the list we use the data type with
+  //the list List<String>
+  //names.add(30);
+
+  //classes
+  User user = new User(name: "tom", age: 30);
+  print(user.name);
+  print(user.age);
+  user.login();
+
+  AdminUser adminUser = new AdminUser(name: "Diluka", age: 20);
+  print(adminUser.name);
+  print(adminUser.age);
+  adminUser.login();
+  adminUser.deleteUser();
+
+  //user.deleteUser();
+
+  //map
+  Map<String, dynamic> person = {"name": "Diluka", "age": 20, "isMale": true};
+  print(person);
+  print(person["name"]);
+  print(person["age"]);
+  print(person["isMale"]);
+
+  ConvertToString() => person.entries.map((e) => e.value).toList();
+  print(ConvertToString());
+}
+
+//functions
+String greet() {
+  return "Hello World";
+}
+
+int getAge(int age) {
+  return age;
+}
+
+//Arrow functions
+String greetArrow() => "Hello World2";
+
+int getAgeArrow(int age) => age;
+
+//classes
+
+class User {
+  String? name;
+  int? age;
+  User({String? name, int? age}) {
+    this.name = name;
+    this.age = age;
+  }
+
+  void login() {
+    print("User logged in");
+  }
+}
+
+class AdminUser extends User {
+  AdminUser({String? name, int? age}) : super(name: name, age: age);
+
+  void deleteUser() {
+    print("User deleted");
+  }
+}
